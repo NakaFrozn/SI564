@@ -23,9 +23,14 @@ For the tables in `ro_query`, I only found 2 tables in the database. They are `h
 
 In the `taxdata` table, there are 12 columns in the table.
 
-![alt text](./Pics/image2.png)
+<img src="./Pics/image2.png" alt="alt text" width="50%">
 
 There are 443308 rows in the `titles` table.
 
-![alt text](./Pics/image3.png)
-![alt text](./Pics/image4.png)
+<img src="./Pics/image3.png" alt="alt text" width="50%">
+<img src="./Pics/image4.png" alt="alt text" width="50%">
+
+Please let me know if you have any additional questions. Thank you so much!
+
+Best,  
+Jonas

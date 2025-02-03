@@ -1,7 +1,20 @@
 # Quick Notes for SI564
 SQL and Databases  
 
+- [Quick Notes for SI564](#quick-notes-for-si564)
+  - [Week 1](#week-1)
+  - [Week 2](#week-2)
+  - [Week 3](#week-3)
+    - [WHERE clauses](#where-clauses)
+    - [Subqueries](#subqueries)
+    - [NOT operator](#not-operator)
+    - [NULL](#null)
+    - [Date](#date)
+    - [SLEEP()](#sleep)
+    - [COUNT()](#count)
+
 ## Week 1
+
 Basic Queries describing databases and tables.  
 `SHOW DATABASES;` shows all the databases on a server  
 `USE database_name;` selects a database to use  
@@ -11,6 +24,7 @@ Basic Queries describing databases and tables.
 `SELECT column_name FROM table_name;` shows all the rows in a column
 
 ## Week 2
+
 Structured Query Language: `__VERB__ WHAT FROM LOCATION WHERE CONDITION;`
 4 basic queries in SQL:
 - `SELECT`
@@ -34,3 +48,71 @@ Structured Query Language: `__VERB__ WHAT FROM LOCATION WHERE CONDITION;`
 - If you don't have a documentation, create one.
 
 **Primary keys**: unique identifier for each row in a table.
+
+## Week 3
+
+### WHERE clauses
+
+`WHERE` applies to `SELECT`, `UPDATE`, `DELETE` and `INSERT` statements.
+- `SELECT column_name FROM table_name WHERE condition;`
+
+`conditions` use **single** equal sign.
+
+We can use `BETWEEN .. AND ...` to select a range of values.
+
+`LIKE` is used to search for a specified pattern in a column.  
+- `%` is a wildcard character that represents zero or more characters.
+- `_` is a wildcard character that represents a single character.
+- `\` is used to escape special characters.
+- Use `REGEXP` for regular expression matching.
+- `LIKE` is case-**insensitive**. `%states` matches `United States` and `United states`.
+- E.g. `SELECT column_name FROM table_name WHERE column1 LIKE 'a%' AND column2 LIKE '%b';`
+- `LIKE` can be slow in matching.
+- DON'T use `LIKE` for exact matches as `LIKE` operator is not efficient.
+
+### Subqueries
+
+A subquery is a query nested in another query. Another query result serves as the condition as the main query. For example, `SELECT column_name FROM table_name WHERE column_name IN (SELECT column_name FROM table_name WHERE condition);`  
+The column in the main query should be matched with the column in the subquery.
+
+### NOT operator
+`NOT` is used to negate a condition but not in logical expressions.
+- `NOT` can be used in `IN`, `BETWEEN...AND...`, `LIKE`, `NULL`
+- `NOT` **cannot** be used in `NOT =` or any arithmetic logical expression.
+
+### NULL
+
+`NULL` is a special value that represents missing data.  
+`IS NULL` or `IS NOT NULL`  
+Empty string `''` is not the same as `NULL`.  
+
+### Date
+
+`DATE` is a data type that stores the date.
+- `SELECT DATE('2020-01-01');` returns `2020-01-01`.
+- `SELECT NOW();` returns the current date and time.
+- `SELECT CURDATE();` returns the current date.
+- `SELECT CURTIME();` returns the current time.
+
+We can also select the year, month and day from a date.
+- `SELECT YEAR('2020-01-01');` returns `2020`.
+- `SELECT MONTH('2020-01-01');` returns `1`.
+- `SELECT DAY('2020-01-01');` returns `1`.
+- These functions can also be used in `WHERE` clauses.
+  - `SELECT column_name FROM table_name WHERE YEAR(column_name) = 2020;`
+
+`DATE_FORMAT()` is used to format dates.
+- `SELECT DATE_FORMAT('2020-01-01', '%Y-%m-%d');` returns `2020-01-01`.
+- Also we can use `STR_TO_DATE()` to convert a string to a date.
+  - `SELECT STR_TO_DATE('2020-01-01', '%Y-%m-%d');` returns `2020-01-01`.
+
+### SLEEP()
+`SLEEP()` is used to pause the execution of a query for a specified number of seconds.
+- `SELECT SLEEP(5);` pauses the execution for 5 seconds.
+
+### COUNT()
+`COUNT()` is used to count the number of rows in a table.
+- `COUNT(*)` returns the total number of rows in a table.
+- `COUNT(column)` returns the number of non-NULL values in a column.
+- `SELECT COUNT(1) AS total_count FROM table_name;` returns the total number of rows in a table and renames the column as `total_count`.
+
