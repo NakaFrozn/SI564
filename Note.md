@@ -12,6 +12,8 @@ SQL and Databases
     - [Date](#date)
     - [SLEEP()](#sleep)
     - [COUNT()](#count)
+  - [Week 4](#week-4)
+    - [Aggregate Functions](#aggregate-functions)
 
 ## Week 1
 
@@ -115,4 +117,15 @@ We can also select the year, month and day from a date.
 - `COUNT(*)` returns the total number of rows in a table.
 - `COUNT(column)` returns the number of non-NULL values in a column.
 - `SELECT COUNT(1) AS total_count FROM table_name;` returns the total number of rows in a table and renames the column as `total_count`.
+
+Don't use `COUNT(*)` to count the number of rows in a table as it is not efficient. It pulls all the data from the database and counts the observations. Use `COUNT(1)` instead.
+
+## Week 4
+
+### Aggregate Functions
+
+- `SUM()`: returns the sum of a numeric column.
+- `AVG()`: returns the average of a numeric column.
+- `COUNT()`: returns the number of rows in a table.
+- 
 
