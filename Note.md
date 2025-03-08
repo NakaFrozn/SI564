@@ -14,6 +14,9 @@ SQL and Databases
     - [COUNT()](#count)
   - [Week 4](#week-4)
     - [Aggregate Functions](#aggregate-functions)
+  - [Week 5](#week-5)
+    - [GROUP BY](#group-by)
+    - [HAVING](#having)
 
 ## Week 1
 
@@ -118,7 +121,7 @@ We can also select the year, month and day from a date.
 - `COUNT(column)` returns the number of non-NULL values in a column.
 - `SELECT COUNT(1) AS total_count FROM table_name;` returns the total number of rows in a table and renames the column as `total_count`.
 
-Don't use `COUNT(*)` to count the number of rows in a table as it is not efficient. It pulls all the data from the database and counts the observations. Use `COUNT(1)` instead.
+**Use `COUNT(1)` instead**. Don't use `COUNT(*)` to count the number of rows in a table as it is not efficient. It pulls all the data from the database and counts the observations. 
 
 ## Week 4
 
@@ -127,5 +130,28 @@ Don't use `COUNT(*)` to count the number of rows in a table as it is not efficie
 - `SUM()`: returns the sum of a numeric column.
 - `AVG()`: returns the average of a numeric column.
 - `COUNT()`: returns the number of rows in a table.
-- 
+
+
+## Week 5
+
+### GROUP BY
+
+Aggregation Functions applied with `GROUP BY` clause. Summarize those values after GROUP BY.
+- `COUNT()`
+- `SUM()`
+- `AVERAGE()`/`AVG()`
+- `MAXIMUM()`
+- `MINIMUM()`
+
+Example queries:
+`SELECT Continent, AVG(Population) FROM Country GROUP BY Continent;`
+
+When `GROUP BY` joined tables, `GROUP BY` the field in the primary table.
+![Alt text](image.png)
+
+### HAVING
+
+`HAVING` is used to filter the results of a `GROUP BY` clause.
+
+`SELECT Continent, AVG(Population) FROM Country GROUP BY Continent HAVING AVG(Population) > 500000;`
 

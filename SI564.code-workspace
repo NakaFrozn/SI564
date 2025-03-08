@@ -4,7 +4,11 @@
             "path": "."
         }
     ],
-    "settings": {},
+    "settings": {
+        "window.autoDetectColorScheme": true,
+        "workbench.preferredLightColorTheme": "Quiet Light",
+        "workbench.colorTheme": "Theme Flat"
+    },
     "launch": {
         "version": "0.2.0",
         "configurations": [],
