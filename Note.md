@@ -162,4 +162,13 @@ When `GROUP BY` joined tables, `GROUP BY` the field in the primary table.
 
 Subqueries can only return **one** field. Field selected in subquery needs to be the same as the field in the `WHERE` statement.
 
-Aggregate:
+Aggregate function can not be used inside an aggregate function.
+
+Empty string `''` is **not** the same as `NULL`.
+- Use `IS NULL` or `IS NOT NULL` to check for `NULL` values.
+
+How to check answers?
+- Add a field in the SELECT clause
+- Check for typos, missing part of the query or magic quotes
+- Read error messages
+
