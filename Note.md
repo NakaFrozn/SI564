@@ -17,6 +17,7 @@ SQL and Databases
   - [Week 5](#week-5)
     - [GROUP BY](#group-by)
     - [HAVING](#having)
+  - [Notes before Midterm](#notes-before-midterm)
 
 ## Week 1
 
@@ -79,6 +80,8 @@ We can use `BETWEEN .. AND ...` to select a range of values.
 
 A subquery is a query nested in another query. Another query result serves as the condition as the main query. For example, `SELECT column_name FROM table_name WHERE column_name IN (SELECT column_name FROM table_name WHERE condition);`  
 The column in the main query should be matched with the column in the subquery.
+
+Subqueries can only return **one** field. Field selected in subquery needs to be the same as the field in the `WHERE` statement.
 
 ### NOT operator
 `NOT` is used to negate a condition but not in logical expressions.
@@ -155,3 +158,8 @@ When `GROUP BY` joined tables, `GROUP BY` the field in the primary table.
 
 `SELECT Continent, AVG(Population) FROM Country GROUP BY Continent HAVING AVG(Population) > 500000;`
 
+## Notes before Midterm
+
+Subqueries can only return **one** field. Field selected in subquery needs to be the same as the field in the `WHERE` statement.
+
+Aggregate:
