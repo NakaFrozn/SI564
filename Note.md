@@ -18,6 +18,8 @@ SQL and Databases
     - [GROUP BY](#group-by)
     - [HAVING](#having)
   - [Notes before Midterm](#notes-before-midterm)
+  - [Week 9](#week-9)
+    - [Save MySQL Database](#save-mysql-database)
 
 ## Week 1
 
@@ -171,4 +173,16 @@ How to check answers?
 - Add a field in the SELECT clause
 - Check for typos, missing part of the query or magic quotes
 - Read error messages
+
+## Week 9
+
+### Save MySQL Database
+
+`mysqldump -h <host> --port <port> -u <username> -p<password> <database> --set-gtid-purged=OFF > <filename.sql>`
+
+Use this on the notebook server on Canvas can dump and download the database file.
+
+Upload database to MySQL Server: 
+
+`mysql -h <host> --port <port> -u <username> -p<password> <database> < <filename.sql>` // Different direction of `<` and `>`.
 
